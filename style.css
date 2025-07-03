@@ -15,11 +15,11 @@
 
 }
 
-.container{
+#container{
 
     border: 10px solid red;
     height: 1200px;
-    width: 1200px;
+    width: auto;
 
     margin: auto;
     
