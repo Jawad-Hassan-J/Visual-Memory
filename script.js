@@ -65,9 +65,28 @@ const initializeBorads= ()=> {
 
 }
 
+const existWithNoOrder = (arr,value ) => {
+    let found = false
+    for (let i=0;i<arr.length;i++){
+        if(arr[i] === value ){
+            found = true
+            return found
+        }
+    }
+    return found
+}
+
+const existWithOrder = (arr1,arr2) =>{
 
 
+}
 
+let arrayTest = ['1','2','3']
+
+console.log(existWithNoOrder(arrayTest,"1"))
+console.log(existWithNoOrder(arrayTest,"2"))
+console.log(existWithNoOrder(arrayTest,"4"))
+console.log(existWithNoOrder(arrayTest,"5"))
 
 
 createBoxes()
