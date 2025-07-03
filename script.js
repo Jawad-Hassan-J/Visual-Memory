@@ -5,6 +5,8 @@ let statsLocatoin = document.getElementById("stats")
 let currentLevelLocation = document.getElementById("currentLevel")
 let levelLiveLocation = document.getElementById("levelLive") 
 let totalLivesLocation  = document.getElementById("totalLives") 
+let boxClassLocaion = document.querySelectorAll(".box")
+
 
 
 let currentLevel = 1
@@ -32,7 +34,9 @@ let falseGuesses = []
 let falseGuessesIndex =[]
 
 let boxSize= 150
-let boxClassLocaion 
+let effectedBoxColor = "red"
+let defaulBoxColor = "aqua"
+
 
 
 
@@ -70,6 +74,7 @@ const createBoxes = () =>{
     box.style.width = `${boxSize}px`
     box.style.height = `${boxSize}px`
     box.addEventListener('click',handleClick)
+    box.style.backgroundColor= defaulBoxColor
 
     containerClassLocation.appendChild(box)
 
@@ -117,16 +122,15 @@ const generateEffectedBoardr = ()=> {
     }
 
 const compare = (boxId)=>{
+
     if(effectedBoard.includes(boxId)){
         tureGuesses.push(boxId)
     }
 
-    else
-    falseGuesses.push(boxId) 
+    else {falseGuesses.push(boxId) }
 
-    // if(ture){
 
-    // }
+
 
 }
 
@@ -175,6 +179,24 @@ const removeBoxes = ()=>{
 
 
 }
+
+const showEffectedBoard = () =>{
+
+    effectedBoard.forEach(index => {
+        
+    let box = document.getElementById(index)
+    box.style.backgroundColor = effectedBoxColor
+
+
+    }
+
+
+
+    )
+
+
+}
+
 
 
 
