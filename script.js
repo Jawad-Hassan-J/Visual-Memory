@@ -37,6 +37,7 @@ let boxSize= 150
 let effectedBoxColor = "red"
 let defaulBoxColor = "aqua"
 
+let showTime = 900
 
 
 
@@ -45,6 +46,7 @@ const initializeLevel= ()=>{
     createBoxes()
     initializeBorads()
     generateEffectedBoardr()
+    showEffectedBoard()
 } 
 
 function handleClick (){
@@ -186,14 +188,16 @@ const showEffectedBoard = () =>{
         
     let box = document.getElementById(index)
     box.style.backgroundColor = effectedBoxColor
+  }
+   )
+}
 
+const hideEffectedBoard = () => {
 
-    }
-
-
-
-    )
-
+effectedBoard.forEach(index => {
+        
+    let box = document.getElementById(index)
+    box.style.backgroundColor = defaulBoxColor})
 
 }
 
