@@ -15,6 +15,9 @@ let levelLive = defaultLevelLive
 let defaultTotalLives =3
 let totalLives = defaultTotalLives
 
+let defaultnextLevelSequence = 2
+let nextLevelSequence = defaultnextLevelSequence
+
 let dimension = 3
 let squerNumber = 3
 
@@ -129,6 +132,12 @@ const compare = (boxId)=>{
 
 const nextLevel =()=> {
 
+removeBoxes()
+
+if( currentLevel % defaultnextLevelSequence ===0){
+     dimension ++
+}
+
  board = []
  tureGuesses = []
  tureGuessesIndex =[]
@@ -137,9 +146,11 @@ const nextLevel =()=> {
 
  levelLive = defaultLevelLive
  currentLevel ++
- dimension ++
+
+
 
 initializeLevel()
+
 
 
 }
