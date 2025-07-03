@@ -8,7 +8,6 @@ let totalLivesLocation  = document.getElementById("totalLives")
 let boxClassLocaion = document.querySelectorAll(".box")
 
 
-
 let currentLevel = 1
 
 let defaultLevelLive = 3
@@ -36,6 +35,7 @@ let falseGuessesIndex =[]
 let boxSize= 150
 let effectedBoxColor = "red"
 let defaulBoxColor = "aqua"
+let falseBoxColor = "black"
 
 let showTime = 900
 
@@ -127,11 +127,23 @@ const generateEffectedBoardr = ()=> {
 
 const compare = (boxId)=>{
 
+    let box = document.getElementById(boxId)
+
     if(effectedBoard.includes(boxId)){
         tureGuesses.push(boxId)
+        box.style.backgroundColor = effectedBoxColor
+        
     }
 
-    else {falseGuesses.push(boxId) }
+    else {
+        falseGuesses.push(boxId) 
+        box.style.backgroundColor = falseBoxColor
+    
+    }
+
+    if (isEqual(tureGuesses,effectedBoard)){
+        nextLevel()
+    }
 
 
 
@@ -245,8 +257,6 @@ const printBoard=()=>{
 
 function temp(){
 
-    console.log(currentLevel)
-    console.log(currentLevel % defaultnextLevelSequence === 0 || currentLevel ==1)
 
 }
 initializeLevel()
