@@ -73,7 +73,7 @@ const createBoxes = () =>{
 const initializeBorads= ()=> {
     for(let i=0;i<(dimension*dimension);i++){
         board[i]=""
-        effectedBoard[i]=""
+    
     }
 
 }
@@ -101,8 +101,8 @@ const generateEffectedBoardr = ()=> {
     for(let i=0;i<squerNumber;){
     let randomIndex = Math.floor(Math.random() *(dimension*dimension))
 
-      if(board[randomIndex]===""){
-        effectedBoard[randomIndex] = `${randomIndex}`
+      if(board[randomIndex]==="" && !effectedBoard.includes(`${randomIndex}`)){
+        effectedBoard.push(`${randomIndex}`)
         i++
       }
         }
@@ -116,18 +116,54 @@ const compare = (boxId)=>{
     else
     falseGuesses.push(boxId) 
 
-console.log("ture"+ tureGuesses)
-console.log("false"+falseGuesses)
+    // if(ture){
+
+    // }
+
 }
+
+
+const nextLevel =()=> {
+
+ board = []
+ tureGuesses = []
+ tureGuessesIndex =[]
+ falseGuesses = []
+ falseGuessesIndex =[]
+ currentLevel++
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 const printBoard=()=>{
 
+    console.log("---------- Print ----------")
+
+    console.log("borad")
+     console.log(board)
+
+    console.log(effectedBoard)
+    console.log(effectedBoard)
     
-    console.log("borad"+" "+board)
-    console.log("effectedBoard"+" "+effectedBoard)
-    console.log("tureGuesses"+" "+tureGuesses)
-    console.log("falseGuesses"+" "+falseGuesses)
+    console.log("tureGuesses") 
+    console.log(tureGuesses)
+
+    console.log("falseGuesses")
+    console.log(falseGuesses)
+
+    console.log("---------- Print ----------")
 
 
 
