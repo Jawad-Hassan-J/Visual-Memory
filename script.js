@@ -3,14 +3,17 @@ let containerGrid = document.getElementById("container").style.gridTemplateColum
 
 let statsLocatoin = document.getElementById("stats")
 let currentLevelLocation = document.getElementById("currentLevel")
+
 let levelLiveLocation = document.getElementById("levelLive") 
+
 let totalLivesLocation  = document.getElementById("totalLives") 
 let boxClassLocaion = document.querySelectorAll(".box")
 
 
+
 let currentLevel = 1
 
-let defaultLevelLive = 3
+let defaultLevelLive = 5
 let levelLive = defaultLevelLive
 
 let defaultTotalLives = 3
@@ -38,17 +41,22 @@ let defaulBoxColor = "aqua"
 let falseBoxColor = "black"
 
 let showTime = 900
+let isRunning = true
 
-
+levelLiveLocation.innerText = (`Total Live: ${defaultLevelLive} out of ${levelLive}`)
+totalLivesLocation = (`Total Live: ${defaultTotalLives} out of ${totalLives}`)
+levelLiveLocation.innerText = (`level Live: ${defaultLevelLive} out of ${levelLive}`)
 
 const initializeLevel= ()=>{
 
-    createBoxes()
-    initializeBorads()
-    generateEffectedBoardr()
-    showEffectedBoard()
-    //time out bro code
-    setTimeout(hideEffectedBoard, showTime)
+    if(isRunning){
+        createBoxes()
+        initializeBorads()
+        generateEffectedBoardr()
+        showEffectedBoard()
+        //time out bro code
+        setTimeout(hideEffectedBoard, showTime)
+    }
 } 
 
 function handleClick (){
@@ -95,20 +103,8 @@ const initializeBorads= ()=> {
 
 }
 
-const exist = (arr,value ) => {
-    let found = false
-    for (let i=0;i<arr.length;i++){
-        if(arr[i] === value ){
-            found = true
-            return found
-        }
-    }
-    return found
-}
-
 // https://quickref.me/compare-two-arrays-regardless-of-order.html
-const isEqual = (a, b) =>
-    JSON.stringify(a.sort()) === JSON.stringify(b.sort())
+const isEqual = (a, b) => JSON.stringify(a.sort()) === JSON.stringify(b.sort())
 
 
  // https://stackoverflow.com/questions/9071573/is-there-a-simple-way-to-make-a-random-selection-from-an-array-in-javascript-or
@@ -127,34 +123,47 @@ const generateEffectedBoardr = ()=> {
 
 const compare = (boxId)=>{
 
-    let box = document.getElementById(boxId)
+    if (isRunning){
+        let box = document.getElementById(boxId)
 
-    if(effectedBoard.includes(boxId)){
-        tureGuesses.push(boxId)
-        box.style.backgroundColor = effectedBoxColor
+        if(effectedBoard.includes(boxId)){
+            tureGuesses.push(boxId)
+            box.style.backgroundColor = effectedBoxColor
+            
+        }
+
+        else {
+            falseGuesses.push(boxId) 
+            box.style.backgroundColor = falseBoxColor
+            levelLive --
+            levelLiveLocation.innerText = (`level Live: ${levelLive} out of ${defaultLevelLive}` ) 
         
+        }
+
+        if(levelLive === 0){
+            totalLives--
+            totalLivesLocation.innerText=(`Total Live: ${defaultTotalLives} out of ${totalLives}`) 
+            resetLevel()
+            levelLive = defaultLevelLive
+            totalLivesLocation.innerText = (`level Live: ${defaultLevelLive} out of ${levelLive}` ) 
+        }
+
+        if(totalLives === 0){
+            isRunning =false
+        }
+
+
+        if (isEqual(tureGuesses,effectedBoard)){
+            nextLevel()
+        }
     }
-
-    else {
-        falseGuesses.push(boxId) 
-        box.style.backgroundColor = falseBoxColor
-    
-    }
-
-    if (isEqual(tureGuesses,effectedBoard)){
-        nextLevel()
-    }
-
-
-
 
 }
-
 
 const nextLevel =()=> {
 
 removeBoxes()
-
+// resetBoards()
 board = []
 effectedBoard = []
 
@@ -179,7 +188,9 @@ nextLevelCounter++
 currentLevel++
 currentLevelLocation.innerText =`Level: ${currentLevel}`
 
-squerNumber++
+levelLiveLocation.innerText = (`level Live: ${levelLive} out of ${defaultLevelLive}` )
+
+squerNumber++ 
 initializeLevel()
 
 
@@ -214,6 +225,30 @@ effectedBoard.forEach(index => {
         
     let box = document.getElementById(index)
     box.style.backgroundColor = defaulBoxColor})
+
+}
+
+const resetLevel = () =>{
+
+      if(isRunning){
+        levelLive = defaultLevelLive
+        removeBoxes()
+        resetBoards()
+        initializeLevel()
+     
+        
+    } }
+
+const resetBoards = () =>{
+
+    board = []
+    effectedBoard = []
+
+    tureGuesses = []
+    tureGuessesIndex =[]
+
+    falseGuesses = []
+    falseGuessesIndex =[]
 
 }
 
@@ -259,6 +294,9 @@ function temp(){
 
 
 }
+
+
+
 initializeLevel()
 
 
