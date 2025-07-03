@@ -8,8 +8,12 @@ let totalLivesLocation  = document.getElementById("totalLives")
 
 
 let currentLevel = 1
-let levelLive = 3
-let totalLives = 3
+
+let defaultLevelLive = 3
+let levelLive = defaultLevelLive
+
+let defaultTotalLives =3
+let totalLives = defaultTotalLives
 
 let dimension = 3
 let squerNumber = 3
@@ -37,16 +41,16 @@ const initializeLevel= ()=>{
 
 function handleClick (){
 let boxId = this.id
-console.log(boxId)
+
 
 if(board[boxId] !="")
-   console.log("is avaliavle")
+   
 
 if(board[boxId]=== "")
     {
         board[boxId]=(`${boxId}`)
     }
-console.log(board)
+
 compare(boxId)
 
 
@@ -130,10 +134,29 @@ const nextLevel =()=> {
  tureGuessesIndex =[]
  falseGuesses = []
  falseGuessesIndex =[]
- currentLevel++
+
+ levelLive = defaultLevelLive
+ currentLevel ++
+ dimension ++
+
+initializeLevel()
 
 
 }
+
+const removeBoxes = ()=>{
+    for(let i=0;i<board.length;i++){
+        let box = document.getElementById(`${i}`)
+            box.remove()
+        
+
+
+    }
+
+
+}
+
+
 
 
 
@@ -152,7 +175,7 @@ const printBoard=()=>{
     console.log("---------- Print ----------")
 
     console.log("borad")
-     console.log(board)
+    console.log(board)
 
     console.log(effectedBoard)
     console.log(effectedBoard)
@@ -172,5 +195,4 @@ const printBoard=()=>{
 
 initializeLevel()
 
-console.log("effected board is")
-console.log(effectedBoard)
+
