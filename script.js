@@ -42,9 +42,10 @@ console.log(boxId)
 if(board[boxId] !="")
    console.log("is avaliavle")
 
-if(board[boxId]=== ""){
-    board[boxId]=(`${boxId}`)
-}
+if(board[boxId]=== "")
+    {
+        board[boxId]=(`${boxId}`)
+    }
 console.log(board)
 
 }
@@ -89,12 +90,25 @@ const exist = (arr,value ) => {
 const isEqual = (a, b) =>
     JSON.stringify(a.sort()) === JSON.stringify(b.sort())
 
-let arrayTest1 = ['1','2','3']
-let arrayTest2 = ['2','2','3']
 
-console.log(isEqual(arrayTest1,arrayTest2))
+ // https://stackoverflow.com/questions/9071573/is-there-a-simple-way-to-make-a-random-selection-from-an-array-in-javascript-or
+
+ const generateEffectedBoardr = ()=> {
+
+    for(let i=0;i<squerNumber;i=i){
+    let randomIndex = Math.floor(Math.random() *(dimension*dimension))
+
+      if(board[randomIndex]===""){
+        effectedBoard[randomIndex] = randomIndex
+        i++
+      }
+        }
+    }
+
 
 
 
 initializeLevel()
+generateEffectedBoardr()
 
+console.log(effectedBoard)
