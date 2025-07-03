@@ -76,7 +76,7 @@ const exist = (arr,value ) => {
     return found
 }
 
-// https://quickref.me/compare-two-arrays-regardless-of-order.html?utm_source=chatgpt.com
+// https://quickref.me/compare-two-arrays-regardless-of-order.html
 const isEqual = (a, b) =>
     JSON.stringify(a.sort()) === JSON.stringify(b.sort())
 
