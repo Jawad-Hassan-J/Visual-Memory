@@ -17,7 +17,7 @@ let levelLive = defaultLevelLive
 let defaultTotalLives = 3
 let totalLives = defaultTotalLives 
 
-let defaultnextLevelSequence = 4
+let defaultnextLevelSequence = 5
 let nextLevelSequence = (defaultnextLevelSequence - 1) 
 let nextLevelCounter = 0
 
@@ -47,6 +47,8 @@ const initializeLevel= ()=>{
     initializeBorads()
     generateEffectedBoardr()
     showEffectedBoard()
+    //time out bro code
+    setTimeout(hideEffectedBoard, showTime)
 } 
 
 function handleClick (){
@@ -163,6 +165,8 @@ nextLevelCounter++
 }
 
 currentLevel++
+currentLevelLocation.innerText =`Level: ${currentLevel}`
+
 squerNumber++
 initializeLevel()
 
