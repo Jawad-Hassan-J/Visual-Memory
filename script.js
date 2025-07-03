@@ -12,11 +12,12 @@ let currentLevel = 1
 let defaultLevelLive = 3
 let levelLive = defaultLevelLive
 
-let defaultTotalLives =3
-let totalLives = defaultTotalLives
+let defaultTotalLives = 3
+let totalLives = defaultTotalLives 
 
-let defaultnextLevelSequence = 2
-let nextLevelSequence = defaultnextLevelSequence
+let defaultnextLevelSequence = 4
+let nextLevelSequence = (defaultnextLevelSequence - 1) 
+let nextLevelCounter = 0
 
 let dimension = 3
 let squerNumber = 3
@@ -72,9 +73,9 @@ const createBoxes = () =>{
 
     containerClassLocation.appendChild(box)
 
-    // grid layout
-    document.getElementById("container").style.gridTemplateColumns = `repeat(${dimension}, auto)`
-    }
+}
+// grid layout
+document.getElementById("container").style.gridTemplateColumns = `repeat(${dimension}, auto)`
 }
 
 const initializeBorads= ()=> {
@@ -134,21 +135,29 @@ const nextLevel =()=> {
 
 removeBoxes()
 
-if( currentLevel % defaultnextLevelSequence ===0){
-     dimension ++
+board = []
+effectedBoard = []
+
+tureGuesses = []
+tureGuessesIndex =[]
+
+falseGuesses = []
+falseGuessesIndex =[]
+
+levelLive = defaultLevelLive
+
+
+
+if ( (nextLevelCounter === nextLevelSequence) || (currentLevel === 1)) {
+    dimension++
+    nextLevelCounter = 0 } 
+
+else {
+nextLevelCounter++
 }
 
- board = []
- tureGuesses = []
- tureGuessesIndex =[]
- falseGuesses = []
- falseGuessesIndex =[]
-
- levelLive = defaultLevelLive
- currentLevel ++
-
-
-
+currentLevel++
+squerNumber++
 initializeLevel()
 
 
@@ -181,6 +190,7 @@ const removeBoxes = ()=>{
 
 
 
+
 const printBoard=()=>{
 
     console.log("---------- Print ----------")
@@ -188,7 +198,7 @@ const printBoard=()=>{
     console.log("borad")
     console.log(board)
 
-    console.log(effectedBoard)
+    console.log("effectedBoard")
     console.log(effectedBoard)
     
     console.log("tureGuesses") 
@@ -203,7 +213,12 @@ const printBoard=()=>{
 
 }
 
+function temp(){
 
+    console.log(currentLevel)
+    console.log(currentLevel % defaultnextLevelSequence === 0 || currentLevel ==1)
+
+}
 initializeLevel()
 
 
