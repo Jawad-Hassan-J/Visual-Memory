@@ -95,7 +95,7 @@ const isEqual = (a, b) =>
 
  const generateEffectedBoardr = ()=> {
 
-    for(let i=0;i<squerNumber;i=i){
+    for(let i=0;i<squerNumber;){
     let randomIndex = Math.floor(Math.random() *(dimension*dimension))
 
       if(board[randomIndex]===""){
