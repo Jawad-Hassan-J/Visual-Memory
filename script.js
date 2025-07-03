@@ -38,6 +38,15 @@ function handleClick (){
 let boxId = this.id
 console.log(boxId)
 
+
+if(board[boxId] !="")
+   console.log("is avaliavle")
+
+if(board[boxId]=== ""){
+    board[boxId]=(`${boxId}`)
+}
+console.log(board)
+
 }
 
 const createBoxes = () =>{
@@ -87,5 +96,5 @@ console.log(isEqual(arrayTest1,arrayTest2))
 
 
 
-createBoxes()
+initializeLevel()
 
