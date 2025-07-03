@@ -29,13 +29,24 @@ const createBoxes = () =>{
     let box = document.createElement("div")
     box.className = "box"
     box.id=i
-    box.style.width = `${boxSize}px`;
-    box.style.height = `${boxSize}px`;
+    box.style.width = `${boxSize}px`
+    box.style.height = `${boxSize}px`
+    box.addEventListener('click',handleClick)
+
     containerClassLocation.appendChild(box)
+
+    // grid layout
     document.getElementById("container").style.gridTemplateColumns = `repeat(${dimension}, auto)`
+    
     }
+}
+
+
+function handleClick (){
+let boxId = this.id
+console.log(boxId)
+
 }
 
 createBoxes()
 
-document.getElementById("container").style.gridTemplateColumns = `repeat(${2}, auto)`
