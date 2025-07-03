@@ -31,6 +31,7 @@ let boxClassLocaion
 const initializeLevel= ()=>{
 
     createBoxes()
+    initializeBorads()
 } 
 
 function handleClick (){
@@ -60,9 +61,6 @@ const initializeBorads= ()=> {
     for(let i=0;i<(dimension*dimension);i++){
         board[i]=""
         effectedBoard[i]=""
-        
-        
-
     }
 
 }
