@@ -1,4 +1,5 @@
 let containerClassLocation = document.getElementById("container")
+let containerGrid = document.getElementById("container").style.gridTemplateColumns 
 
 let statsLocatoin = document.getElementById("stats")
 let currentLevelLocation = document.getElementById("currentLevel")
@@ -19,7 +20,22 @@ let tureGuessesIndex =[]
 let falseGuesses = []
 let falseGuessesIndex =[]
 
-const createSquares = () =>{
+let boxSize= 150
+let boxClassLocaion 
 
+const createBoxes = () =>{
+    for(let i=0;i<(dimension*dimension);i++){
 
+    let box = document.createElement("div")
+    box.className = "box"
+    box.id=i
+    box.style.width = `${boxSize}px`;
+    box.style.height = `${boxSize}px`;
+    containerClassLocation.appendChild(box)
+    document.getElementById("container").style.gridTemplateColumns = `repeat(${dimension}, auto)`
+    }
 }
+
+createBoxes()
+
+document.getElementById("container").style.gridTemplateColumns = `repeat(${2}, auto)`
