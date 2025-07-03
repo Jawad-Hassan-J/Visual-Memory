@@ -14,6 +14,9 @@ let totalLives = 3
 let dimension = 3
 let squerNumber = 3
 
+let board = []
+let effectedBoard = []
+
 let tureGuesses = []
 let tureGuessesIndex =[]
 
@@ -22,6 +25,19 @@ let falseGuessesIndex =[]
 
 let boxSize= 150
 let boxClassLocaion 
+
+
+
+const initializeLevel= ()=>{
+
+    createBoxes()
+} 
+
+function handleClick (){
+let boxId = this.id
+console.log(boxId)
+
+}
 
 const createBoxes = () =>{
     for(let i=0;i<(dimension*dimension);i++){
@@ -37,16 +53,24 @@ const createBoxes = () =>{
 
     // grid layout
     document.getElementById("container").style.gridTemplateColumns = `repeat(${dimension}, auto)`
-    
     }
 }
 
+const initializeBorads= ()=> {
+    for(let i=0;i<(dimension*dimension);i++){
+        board[i]=""
+        effectedBoard[i]=""
+        
+        
 
-function handleClick (){
-let boxId = this.id
-console.log(boxId)
+    }
 
 }
+
+
+
+
+
 
 createBoxes()
 
