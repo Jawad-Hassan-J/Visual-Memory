@@ -65,7 +65,7 @@ const initializeBorads= ()=> {
 
 }
 
-const existWithNoOrder = (arr,value ) => {
+const exist = (arr,value ) => {
     let found = false
     for (let i=0;i<arr.length;i++){
         if(arr[i] === value ){
@@ -76,17 +76,15 @@ const existWithNoOrder = (arr,value ) => {
     return found
 }
 
-const existWithOrder = (arr1,arr2) =>{
+// https://quickref.me/compare-two-arrays-regardless-of-order.html?utm_source=chatgpt.com
+const isEqual = (a, b) =>
+    JSON.stringify(a.sort()) === JSON.stringify(b.sort())
 
+let arrayTest1 = ['1','2','3']
+let arrayTest2 = ['2','2','3']
 
-}
+console.log(isEqual(arrayTest1,arrayTest2))
 
-let arrayTest = ['1','2','3']
-
-console.log(existWithNoOrder(arrayTest,"1"))
-console.log(existWithNoOrder(arrayTest,"2"))
-console.log(existWithNoOrder(arrayTest,"4"))
-console.log(existWithNoOrder(arrayTest,"5"))
 
 
 createBoxes()
