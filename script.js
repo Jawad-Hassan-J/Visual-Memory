@@ -43,9 +43,18 @@ let falseBoxColor = "black"
 let showTime = 900
 let isRunning = true
 
-levelLiveLocation.innerText = (`Total Live: ${defaultLevelLive} out of ${levelLive}`)
-totalLivesLocation = (`Total Live: ${defaultTotalLives} out of ${totalLives}`)
-levelLiveLocation.innerText = (`level Live: ${defaultLevelLive} out of ${levelLive}`)
+let lossLevel
+let winLevel
+
+currentLevelLocation.innerText= `Level: ${1}`
+levelLiveLocation.innerText = (`Total Live: ${levelLive} out of ${defaultLevelLive}`)
+totalLivesLocation.innerText = (`Total Live: ${totalLives} out of ${defaultTotalLives}`)
+
+
+
+
+
+
 
 const initializeLevel= ()=>{
 
@@ -136,16 +145,18 @@ const compare = (boxId)=>{
             falseGuesses.push(boxId) 
             box.style.backgroundColor = falseBoxColor
             levelLive --
-            levelLiveLocation.innerText = (`level Live: ${levelLive} out of ${defaultLevelLive}` ) 
+            levelLiveLocation.innerText = `level Live: ${levelLive} out of ${defaultLevelLive}` 
         
         }
 
         if(levelLive === 0){
             totalLives--
-            totalLivesLocation.innerText=(`Total Live: ${defaultTotalLives} out of ${totalLives}`) 
+            totalLivesLocation.innerText = `Total Live: ${totalLives} out of ${defaultTotalLives}`
+            
             resetLevel()
             levelLive = defaultLevelLive
-            totalLivesLocation.innerText = (`level Live: ${defaultLevelLive} out of ${levelLive}` ) 
+            levelLiveLocation.innerText = `Level Live: ${levelLive} out of ${defaultLevelLive}`
+            
         }
 
         if(totalLives === 0){
@@ -154,6 +165,7 @@ const compare = (boxId)=>{
 
 
         if (isEqual(tureGuesses,effectedBoard)){
+            levelLiveLocation.innerText = `Level Live: ${levelLive} out of ${defaultLevelLive}`
             nextLevel()
         }
     }
