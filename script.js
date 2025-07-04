@@ -43,8 +43,9 @@ let falseBoxColor = "black"
 let showTime = 900
 let isRunning = true
 
-let lossLevelColor = "red"
-let winLevelColor = "green"
+let lossLevelColor ="red"
+let winLevelColor ="green"
+let changeLevelDelay = '1000'
 
 currentLevelLocation.innerText= `Level: ${1}`
 levelLiveLocation.innerText = (`Total Live: ${levelLive} out of ${defaultLevelLive}`)
@@ -153,7 +154,9 @@ const compare = (boxId)=>{
             totalLives--
             totalLivesLocation.innerText = `Total Live: ${totalLives} out of ${defaultTotalLives}`
             
-            resetLevel()
+            
+            changeAllBoxColor(lossLevelColor)
+            setTimeout(resetLevel,`${changeLevelDelay}`)
 
             levelLive = defaultLevelLive
             levelLiveLocation.innerText = `Level Live: ${levelLive} out of ${defaultLevelLive}`
@@ -168,10 +171,8 @@ const compare = (boxId)=>{
         if (isEqual(tureGuesses,effectedBoard)){
             levelLiveLocation.innerText = `Level Live: ${levelLive} out of ${defaultLevelLive}`
 
-            setTimeout()
-
-
-            nextLevel()
+            changeAllBoxColor(winLevelColor)
+            setTimeout(nextLevel,`${changeLevelDelay}`)
         }
     }
 
@@ -208,7 +209,8 @@ currentLevelLocation.innerText =`Level: ${currentLevel}`
 levelLiveLocation.innerText = (`level Live: ${levelLive} out of ${defaultLevelLive}` )
 
 squerNumber++ 
-initializeLevel()
+
+setTimeout(initializeLevel,25) // dealy for fix fast changing 
 
 
 
@@ -259,7 +261,7 @@ const resetLevel = () =>{
     
 const changeAllBoxColor = (color)=>{
 
-    console.log(" is work")
+    console.log("is work")
     
     for(let i=0;i<(dimension * dimension);i++){
         let box = document.getElementById(`${i}`)
@@ -332,8 +334,5 @@ function temp(){
 
 initializeLevel()
 
-setTimeout(() => {
-    changeAllBoxColor("red")
-}, 1000);
 
 
