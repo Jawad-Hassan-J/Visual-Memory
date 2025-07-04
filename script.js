@@ -43,8 +43,8 @@ let falseBoxColor = "black"
 let showTime = 900
 let isRunning = true
 
-let lossLevel
-let winLevel
+let lossLevelColor = "red"
+let winLevelColor = "green"
 
 currentLevelLocation.innerText= `Level: ${1}`
 levelLiveLocation.innerText = (`Total Live: ${levelLive} out of ${defaultLevelLive}`)
@@ -154,6 +154,7 @@ const compare = (boxId)=>{
             totalLivesLocation.innerText = `Total Live: ${totalLives} out of ${defaultTotalLives}`
             
             resetLevel()
+
             levelLive = defaultLevelLive
             levelLiveLocation.innerText = `Level Live: ${levelLive} out of ${defaultLevelLive}`
             
@@ -166,6 +167,10 @@ const compare = (boxId)=>{
 
         if (isEqual(tureGuesses,effectedBoard)){
             levelLiveLocation.innerText = `Level Live: ${levelLive} out of ${defaultLevelLive}`
+
+            setTimeout()
+
+
             nextLevel()
         }
     }
@@ -251,6 +256,22 @@ const resetLevel = () =>{
         
     } }
 
+    
+const changeAllBoxColor = (color)=>{
+
+    console.log(" is work")
+    
+    for(let i=0;i<(dimension * dimension);i++){
+        let box = document.getElementById(`${i}`)
+        box.style.backgroundColor = `${color}`}
+
+    
+
+
+
+
+}
+
 const resetBoards = () =>{
 
     board = []
@@ -310,5 +331,9 @@ function temp(){
 
 
 initializeLevel()
+
+setTimeout(() => {
+    changeAllBoxColor("red")
+}, 1000);
 
 
