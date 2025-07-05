@@ -23,8 +23,15 @@ let defaultnextLevelSequence = 5
 let nextLevelSequence = (defaultnextLevelSequence - 1) 
 let nextLevelCounter = 0
 
-let dimension = 3
-let squerNumber = 3
+let highScoreLocation = document.getElementById(`highScore`)
+let highScore = 1
+
+
+let defaultDimension = 3
+let dimension = defaultDimension
+
+let DefaultSquerNumber = 3
+let squerNumber = DefaultSquerNumber
 
 let board = []
 let effectedBoard = []
@@ -216,6 +223,12 @@ else {
 nextLevelCounter++
 }
 
+
+
+if (highScore<=currentLevel){
+    highScore ++
+    highScoreLocation.innerText= `High Score: ${highScore}`}
+
 currentLevel++
 currentLevelLocation.innerText =`Level: ${currentLevel}`
 
@@ -300,6 +313,36 @@ const resetBoards = () =>{
 
 }
 
+
+const restartGame =  ()=>{
+
+
+removeBoxes()
+resetBoards()
+
+currentLevel = 1
+
+levelLive = defaultLevelLive
+totalLives = defaultTotalLives 
+
+dimension = defaultDimension
+squerNumber = DefaultSquerNumber
+
+nextLevelSequence = (defaultnextLevelSequence - 1) 
+nextLevelCounter = 0
+
+isRunning = true
+gameReady = false
+
+currentLevelLocation.innerText = `Level: ${1}`
+levelLiveLocation.innerText = `Level Live: ${levelLive} out of ${defaultLevelLive}`
+totalLivesLocation.innerText = `Total Live: ${totalLives} out of ${defaultTotalLives}`
+
+initializeLevel()
+
+
+
+}
 
 
 
