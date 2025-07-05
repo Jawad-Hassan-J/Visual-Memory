@@ -83,6 +83,7 @@ function handleClick (){
 
 
         if(board[boxId] !="")
+            return
         
 
         if(board[boxId]=== "")
@@ -141,8 +142,12 @@ const generateEffectedBoardr = ()=> {
 const compare = (boxId)=>{
 
     if (isRunning){
+
+       
+
         let box = document.getElementById(boxId)
 
+        
         if(effectedBoard.includes(boxId)){
             tureGuesses.push(boxId)
             box.style.backgroundColor = effectedBoxColor
@@ -268,7 +273,7 @@ const resetLevel = () =>{
     
 const changeAllBoxColor = (color)=>{
 
-    console.log("is work")
+
     
     for(let i=0;i<(dimension * dimension);i++){
         let box = document.getElementById(`${i}`)
