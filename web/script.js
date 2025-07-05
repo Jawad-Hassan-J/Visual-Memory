@@ -9,6 +9,8 @@ let levelLiveLocation = document.getElementById("levelLive")
 let totalLivesLocation  = document.getElementById("totalLives") 
 let boxClassLocaion = document.querySelectorAll(".box")
 
+let gameOverLocation = document.querySelector(`.game-over`)
+
 
 
 let currentLevel = 1
@@ -47,12 +49,13 @@ let effectedBoxColor = "red"
 let defaulBoxColor = "aqua"
 let falseBoxColor = "black"
 
+let lossLevelColor ="red"
+let winLevelColor ="lightgreen"
+
 let showTime = 900
 let isRunning = true
 let gameReady = false
 
-let lossLevelColor ="red"
-let winLevelColor ="lightgreen"
 let changeLevelDelay = '1000'
 
 currentLevelLocation.innerText= `Level: ${1}`
@@ -184,6 +187,7 @@ const compare = (boxId)=>{
 
         if(totalLives === 0){
             isRunning =false
+            gameOver(true)
         }
 
 
@@ -316,7 +320,7 @@ const resetBoards = () =>{
 
 const restartGame =  ()=>{
 
-
+gameOver(false)
 removeBoxes()
 resetBoards()
 
@@ -339,6 +343,27 @@ levelLiveLocation.innerText = `Level Live: ${levelLive} out of ${defaultLevelLiv
 totalLivesLocation.innerText = `Total Live: ${totalLives} out of ${defaultTotalLives}`
 
 initializeLevel()
+
+
+
+}
+
+const gameOver = (option)=>{
+
+    if(option === true){
+        gameOverLocation.style.opacity= 1
+        gameOverLocation.style.pointerEvents= "auto"
+        
+
+
+    }
+
+    if (option=== false){
+        gameOverLocation.style.opacity= 0
+        gameOverLocation.style.pointerEvents= "none"
+
+
+    }
 
 
 
@@ -383,7 +408,7 @@ const printBoard=()=>{
 
 function temp(){
 
-
+console.log("is working")
 }
 
 

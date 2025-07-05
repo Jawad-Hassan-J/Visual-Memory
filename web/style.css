@@ -41,8 +41,6 @@ body {
     margin: auto;
 
     display: grid;
-
-
     justify-content: center;
     align-content: center;
 
@@ -80,3 +78,64 @@ body {
     
 }
 
+#highScore {
+  
+position: absolute;
+right: 1em;
+
+}
+
+
+.game-over{
+
+  opacity:0 ;
+  pointer-events: none;
+
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+ 
+  font-family: 'Inconsolata', monospace;
+  transition: all 250ms ease;
+
+  background-color: rgba(0, 0, 0, 0.7);
+
+
+
+
+
+
+}
+
+.title {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  
+  
+  font-size: 150px;
+
+  
+
+ 
+}
+
+.button {
+
+  height:100px;
+  width: 100px;
+
+  background-color: black;
+  color: white;
+
+  font-size: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  
+}

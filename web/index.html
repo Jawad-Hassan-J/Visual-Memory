@@ -8,14 +8,23 @@
     <title>Document</title>
 </head>
 <body>
+
+      <section class="game-over">
+
+        <h1 class="title">Game Over!</h1>
+        <a class="button" onclick="temp()">Menu</a>
+        <a class="button" onclick="restartGame()">play again</a>
+
+      </section>
     
     <div class="stats">
         <div id="currentLevel"></div>
         <div id="levelLive">level Live: 3 out of 3</div>
         <div id="totalLives">Total Live: 3 out of 3</div>
-         <div id="highScore">High Score: 1</div>
+        <div id="highScore">High Score: 1</div>
         
     </div>
+    
     <div id="container">
 
 
@@ -23,7 +32,8 @@
 
 
     
-    <div  onclick="restartGame()" id="print">nextLevel</div>
+    <div  onclick="gameOver(true)" id="print">on</div>
+    <div  onclick="gameOver(false)" id="print">off</div>
  
 
    <!-- <div  onclick="printBoard()" id="print">Print Borad</div>
