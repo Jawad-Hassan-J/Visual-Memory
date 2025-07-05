@@ -71,7 +71,7 @@ const initializeLevel= ()=>{
         //time out bro code
         setTimeout(hideEffectedBoard, showTime)
         
-         setTimeout(()=>{gameReady=true},(showTime+250))
+         setTimeout(()=>{gameReady=true},(showTime+100))
     }
 } 
 
@@ -182,9 +182,10 @@ const compare = (boxId)=>{
 
         if (isEqual(tureGuesses,effectedBoard)){
             levelLiveLocation.innerText = `Level Live: ${levelLive} out of ${defaultLevelLive}`
-
+            gameReady = false
             changeAllBoxColor(winLevelColor)
-            setTimeout(nextLevel,`${changeLevelDelay}`)
+            setTimeout(()=>{nextLevel() 
+                gameReady=false},`${changeLevelDelay}`)
         }
     }
 
