@@ -35,7 +35,7 @@ let tureGuessesIndex =[]
 let falseGuesses = []
 let falseGuessesIndex =[]
 
-let boxSize= 150
+
 let effectedBoxColor = "red"
 let defaulBoxColor = "aqua"
 let falseBoxColor = "black"
@@ -44,7 +44,7 @@ let showTime = 900
 let isRunning = true
 
 let lossLevelColor ="red"
-let winLevelColor ="green"
+let winLevelColor ="lightgreen"
 let changeLevelDelay = '1000'
 
 currentLevelLocation.innerText= `Level: ${1}`
@@ -63,7 +63,7 @@ const initializeLevel= ()=>{
         createBoxes()
         initializeBorads()
         generateEffectedBoardr()
-        showEffectedBoard()
+        setTimeout(showEffectedBoard,175)
         //time out bro code
         setTimeout(hideEffectedBoard, showTime)
     }
@@ -93,16 +93,14 @@ const createBoxes = () =>{
     let box = document.createElement("div")
     box.className = "box"
     box.id=i
-    box.style.width = `${boxSize}px`
-    box.style.height = `${boxSize}px`
     box.addEventListener('click',handleClick)
     box.style.backgroundColor= defaulBoxColor
 
     containerClassLocation.appendChild(box)
 
 }
-// grid layout
-document.getElementById("container").style.gridTemplateColumns = `repeat(${dimension}, auto)`
+// grid layout 
+document.getElementById("container").style.gridTemplateColumns = `repeat(${dimension}, 1fr)`
 }
 
 const initializeBorads= ()=> {
@@ -210,7 +208,7 @@ levelLiveLocation.innerText = (`level Live: ${levelLive} out of ${defaultLevelLi
 
 squerNumber++ 
 
-setTimeout(initializeLevel,25) // dealy for fix fast changing 
+setTimeout(initializeLevel,75) // dealy for fix fast changing 
 
 
 
