@@ -42,13 +42,14 @@ let falseBoxColor = "black"
 
 let showTime = 900
 let isRunning = true
+let gameReady = false
 
 let lossLevelColor ="red"
 let winLevelColor ="lightgreen"
 let changeLevelDelay = '1000'
 
 currentLevelLocation.innerText= `Level: ${1}`
-levelLiveLocation.innerText = (`Total Live: ${levelLive} out of ${defaultLevelLive}`)
+levelLiveLocation.innerText = (`Level Live: ${levelLive} out of ${defaultLevelLive}`)
 totalLivesLocation.innerText = (`Total Live: ${totalLives} out of ${defaultTotalLives}`)
 
 
@@ -60,32 +61,40 @@ totalLivesLocation.innerText = (`Total Live: ${totalLives} out of ${defaultTotal
 const initializeLevel= ()=>{
 
     if(isRunning){
+
+        gameReady = false
+
         createBoxes()
         initializeBorads()
         generateEffectedBoardr()
         setTimeout(showEffectedBoard,175)
         //time out bro code
         setTimeout(hideEffectedBoard, showTime)
+        
+         setTimeout(()=>{gameReady=true},(showTime+250))
     }
 } 
 
 function handleClick (){
-let boxId = this.id
+
+    if (gameReady){
+
+        let boxId = this.id
 
 
-if(board[boxId] !="")
-   
+        if(board[boxId] !="")
+        
 
-if(board[boxId]=== "")
-    {
-        board[boxId]=(`${boxId}`)
-    }
+        if(board[boxId]=== "")
+            {
+                board[boxId]=(`${boxId}`)
+            }
 
-compare(boxId)
+        compare(boxId)
 
 
 
-}
+} }
 
 const createBoxes = () =>{
     for(let i=0;i<(dimension*dimension);i++){
@@ -144,7 +153,7 @@ const compare = (boxId)=>{
             falseGuesses.push(boxId) 
             box.style.backgroundColor = falseBoxColor
             levelLive --
-            levelLiveLocation.innerText = `level Live: ${levelLive} out of ${defaultLevelLive}` 
+            levelLiveLocation.innerText = `Level Live: ${levelLive} out of ${defaultLevelLive}` 
         
         }
 
