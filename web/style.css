@@ -41,6 +41,8 @@ body {
     margin: auto;
 
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
     justify-content: center;
     align-content: center;
 
@@ -56,8 +58,8 @@ body {
 .box{
 
     display: inline-block;
-    background-color:aqua ;
    
+    background-color: red;
     justify-content:center;
     justify-items: center;
 
@@ -136,6 +138,26 @@ right: 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  cursor: default;
   
   
+}
+
+.game-one{
+  height: 100%;
+  aspect-ratio: 1/1;
+  background-color: red;
+}
+
+.game-two{
+
+    background-color: green;
+
+
+}
+
+.game-three{
+
+  background-color: yellow;
+
 }

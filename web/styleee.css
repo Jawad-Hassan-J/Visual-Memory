@@ -1,0 +1,46 @@
+*{
+  margin: 0;
+  padding: 0;
+
+}
+
+h1{
+  margin: 50px;
+display: flex;
+justify-content: center;
+
+font-size: 50px;
+}
+
+#container{
+
+  display: flex;
+  grid-template-columns: repeat(3, 1fr);
+
+  justify-content: center;
+  align-content: center;
+  
+  padding: 75px;
+  gap: 50px;
+
+
+
+
+}
+
+.game {
+  
+  display: flex;
+  justify-content: center;   
+  align-items: center;
+
+  height: 250px;
+  width: 2500px;
+  
+  font-size: 40px;
+
+  background-color:rgb(83, 80, 80);
+  color: white;
+  
+
+}
