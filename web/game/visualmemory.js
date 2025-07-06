@@ -35,22 +35,22 @@ let dimension = defaultDimension
 let DefaultSquerNumber = 3
 let squerNumber = DefaultSquerNumber
 
+
+let defaultSequenceNumber=0
+let sequenceNumber = defaultSequenceNumber
+
 let board = []
 let effectedBoard = []
 
 let tureGuesses = []
-let tureGuessesIndex =[]
-
 let falseGuesses = []
-let falseGuessesIndex =[]
-
 
 let effectedBoxColor = "red"
 let defaulBoxColor = "aqua"
 let falseBoxColor = "black"
 
 let lossLevelColor ="red"
-let winLevelColor ="lightgreen"
+let winLevelColor ="lightseagreen"
 
 let showTime = 900
 let isRunning = true
@@ -78,17 +78,18 @@ const initializeLevel= ()=>{
         initializeBorads()
         generateEffectedBoardr()
         setTimeout(showEffectedBoard,175)
-        //time out bro code
         setTimeout(hideEffectedBoard, showTime)
         
          setTimeout(()=>{gameReady=true},(showTime+100))
     }
 } 
 
+
+
 function handleClick (){
 
     if (gameReady){
-
+            
         let boxId = this.id
 
 
@@ -100,7 +101,7 @@ function handleClick (){
             {
                 board[boxId]=(`${boxId}`)
             }
-
+    
         compare(boxId)
 
 
@@ -119,7 +120,7 @@ const createBoxes = () =>{
     containerClassLocation.appendChild(box)
 
 }
-// grid layout 
+
 document.getElementById("container").style.gridTemplateColumns = `repeat(${dimension}, 1fr)`
 }
 
@@ -136,7 +137,6 @@ const isEqual = (a, b) => JSON.stringify(a.sort()) === JSON.stringify(b.sort())
 
 
  // https://stackoverflow.com/questions/9071573/is-there-a-simple-way-to-make-a-random-selection-from-an-array-in-javascript-or
-
 const generateEffectedBoardr = ()=> {
 
     for(let i=0;i<squerNumber;){
@@ -152,7 +152,7 @@ const generateEffectedBoardr = ()=> {
 const compare = (boxId)=>{
 
     if (isRunning){
-
+        if(gameReady){}
        
 
         let box = document.getElementById(boxId)
@@ -205,7 +205,7 @@ const compare = (boxId)=>{
 const nextLevel =()=> {
 
 removeBoxes()
-// resetBoards()
+
 board = []
 effectedBoard = []
 
@@ -216,6 +216,7 @@ falseGuesses = []
 falseGuessesIndex =[]
 
 levelLive = defaultLevelLive
+sequenceNumber= defaultSequenceNumber
 
 
 
@@ -240,7 +241,7 @@ levelLiveLocation.innerText = (`level Live: ${levelLive} out of ${defaultLevelLi
 
 squerNumber++ 
 
-setTimeout(initializeLevel,75) // dealy for fix fast changing 
+setTimeout(initializeLevel,75)
 
 
 
@@ -280,6 +281,7 @@ effectedBoard.forEach(index => {
 const resetLevel = () =>{
 
       if(isRunning){
+        sequenceNumber=defaultSequenceNumber
         levelLive = defaultLevelLive
         removeBoxes()
         resetBoards()
@@ -373,44 +375,17 @@ const gameOver = (option)=>{
 
 
 
+const isEqualWithOrder = (arr1,arr2) =>{
+
+    for(let i=0;i<arr1.length;i++){
 
 
+        if(arr1[i]!=arr2[i]){
+            return false}
 
-
-
-
-
-
-
-
-
-const printBoard=()=>{
-
-    console.log("---------- Print ----------")
-
-    console.log("borad")
-    console.log(board)
-
-    console.log("effectedBoard")
-    console.log(effectedBoard)
-    
-    console.log("tureGuesses") 
-    console.log(tureGuesses)
-
-    console.log("falseGuesses")
-    console.log(falseGuesses)
-
-    console.log("---------- Print ----------")
-
-
-
-}
-
-function temp(){
-
-console.log("is working")
-}
-
+    }
+    return true
+} 
 
 
 initializeLevel()

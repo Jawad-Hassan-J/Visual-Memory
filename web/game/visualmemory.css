@@ -5,12 +5,10 @@
 }
 
 body {
- overflow: hidden;
- scrollbar-width: none;
+  overflow-x: hidden;
 }
 
 .stats{
-  opacity: 0;
     display: flex;
     flex-wrap: wrap;
 
@@ -145,51 +143,3 @@ right: 1em;
   
 }
 
-.game-one{
-  height: 100%;
-  aspect-ratio: 1/1;
-  background-color: red;
-}
-
-.game-two{
-
-    background-color: green;
-
-
-}
-
-.game-three{
-
-  background-color: yellow;
-
-}
-
-
-
-h1{
-  font-size: 100px;
-  margin: 50px;
-display: flex;
-justify-content: center;
-
-
-}
-
-
-
-.game {
-  
-  display: flex;
-  justify-content: center;   
-  align-items: center;
-
-  height: 250px;
- max-width: auto;
-  
-  font-size: 40px;
-
-  background-color:rgb(83, 80, 80);
-  color: white;
-  
-
-}
