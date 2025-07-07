@@ -1,3 +1,5 @@
+/* box shadow and text shadow from BroCode */
+
 * {
   margin: 0;
   padding: 0;
@@ -5,8 +7,10 @@
 }
 
 body {
- overflow: hidden;
- scrollbar-width: none;
+  overflow: auto;
+  scrollbar-width: auto;
+  background-color: black;
+  color: hotpink;
 }
 
 .stats{
@@ -23,19 +27,20 @@ body {
 
     gap: 30px;
   
-    background-color: red;
-    border: 10px solid blue;
-    color: black;
+    background-color: black;
+    border: 3px solid red;
+    color: hotpink;
     font-size: 20px;
     font-weight: bold;
     font-family: 'Segoe UI';
+    text-shadow: 0 0 5px hotpink;
+    box-shadow: 0 0 10px red;
 
 
 }
 
 #container{
 
-    border: 10px solid ghostwhite;
 
     width: 95vw;
     max-width: 650px;
@@ -51,7 +56,9 @@ body {
     gap: 10px;
     margin: 20px auto;
 
-    background: rgb(83, 225, 225);
+    background-color: hotpink;
+    border: 5px solid red;
+    box-shadow: 0 0 10px hotpink;
 
     
     
@@ -61,7 +68,8 @@ body {
 
     display: inline-block;
    
-    background-color: red;
+    background-color: darkred;
+    box-shadow: 0 0 10px hotpink;
     justify-content:center;
     justify-items: center;
 
@@ -133,7 +141,8 @@ right: 1em;
   width: 100px;
 
   background-color: black;
-  color: white;
+  color: hotpink;
+  border: 2px solid red;
 
   font-size: 20px;
 
@@ -145,32 +154,12 @@ right: 1em;
   
 }
 
-.game-one{
-  height: 100%;
-  aspect-ratio: 1/1;
-  background-color: red;
-}
-
-.game-two{
-
-    background-color: green;
-
-
-}
-
-.game-three{
-
-  background-color: yellow;
-
-}
-
-
-
 h1{
   font-size: 100px;
   margin: 50px;
 display: flex;
 justify-content: center;
+color: deeppink;
 
 
 }

@@ -14,11 +14,11 @@ let board = []
 let effectedBoard = []
 
 let effectedBoxColor = "red"
-let defaulBoxColor = "aqua"
-let falseBoxColor = "black"
+let defaulBoxColor = "black"
+let falseBoxColor = "hotpink"
 
 let lossLevelColor ="red"
-let winLevelColor ="lightgreen"
+let winLevelColor ="deeppink"
 
 let showTime = 900
 let changeLevelDelay = '1000'

@@ -1,3 +1,5 @@
+/* box shadow and text shadow from BroCode */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,6 +8,8 @@
 
 body {
   overflow-x: hidden;
+  background-color: black;
+  color: hotpink;
 }
 
 .stats{
@@ -21,19 +25,24 @@ body {
 
     gap: 30px;
   
-    background-color: red;
-    border: 10px solid blue;
-    color: black;
+    background-color: black;
+    border: 3px solid red;
+    color: hotpink;
     font-size: 20px;
     font-weight: bold;
     font-family: 'Segoe UI';
+
+    text-shadow: 0 0 5px hotpink;
+    box-shadow: 0 0 10px red;
 
 
 }
 
 #container{
 
-    border: 10px solid ghostwhite;
+    background-color: black;
+    border: 4px solid red;
+    box-shadow: 0 0 15px hotpink;
 
     width: 95vw;
     max-width: 650px;
@@ -49,7 +58,7 @@ body {
     gap: 10px;
     margin: 20px auto;
 
-    background: rgb(83, 225, 225);
+   
 
     
     
@@ -60,6 +69,7 @@ body {
     display: inline-block;
    
     background-color: red;
+    box-shadow: 0 0 10px hotpink;
     justify-content:center;
     justify-items: center;
 

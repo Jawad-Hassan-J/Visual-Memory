@@ -46,11 +46,11 @@ let tureGuesses = []
 let falseGuesses = []
 
 let effectedBoxColor = "red"
-let defaulBoxColor = "aqua"
-let falseBoxColor = "black"
+let defaulBoxColor = "black"
+let falseBoxColor = "rgb(80,80,80)"
 
-let lossLevelColor ="red"
-let winLevelColor ="lightseagreen"
+let lossLevelColor ="rgb(80,80,80)"
+let winLevelColor ="red"
 
 let showTime = 900
 let isRunning = true
