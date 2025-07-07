@@ -45,12 +45,12 @@ let effectedBoard = []
 let tureGuesses = []
 let falseGuesses = []
 
-let effectedBoxColor = "red"
+let effectedBoxColor = "deeppink"
 let defaulBoxColor = "black"
-let falseBoxColor = "rgb(80,80,80)"
+let falseBoxColor = "red"
 
-let lossLevelColor ="rgb(80,80,80)"
-let winLevelColor ="red"
+let lossLevelColor ="red"
+let winLevelColor ="deeppink"
 
 let showTime = 900
 let isRunning = true

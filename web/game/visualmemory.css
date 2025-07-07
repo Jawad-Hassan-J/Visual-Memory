@@ -153,3 +153,10 @@ right: 1em;
   
 }
 
+/* https://stackoverflow.com/questions/16156225/how-to-change-css-based-on-mobile-device */
+@media (max-width: 770px) {
+  #highScore {
+    margin: 25px;
+  }
+  
+}
