@@ -4,6 +4,9 @@
 ### By: Jawad Hassan
 [Linkedin](#) | [Github](#) 
 
+
+## [Game Link](https://visualmemory.surge.sh/)
+
 ### Visual Memory: is a memory game. You have a dimension (n*n), and a random square appears for a short time. You must remember all positions of these boxes. But be aware—every level gives you a limited number of tries. If you fail, you lose one core. After you finish all your cores, you lose. But you can try again. Good luck!
 
 
@@ -52,5 +55,12 @@
 ## Some Functionality 
 ![image](./gameLogic.jpg)
 
+## Creator
 
+### Resources:
 
+- [isEqual Function](https://quickref.me/compare-two-arrays-regardless-of-order.html)
+- [Math.random()](https://stackoverflow.com/questions/9071573/is-there-a-simple-way-to-make-a-random-selection-from-an-array-in-javascript-or)
+- [Set Timeout](https://www.youtube.com/@BroCode)
+- [Max Width (CSS for mobile)](https://stackoverflow.com/questions/16156225/how-to-change-css-based-on-mobile-device)
+- [Shadow and Style](https://www.youtube.com/@BroCode)

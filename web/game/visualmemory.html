@@ -1,35 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./visualmemory.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./visualmemory.css" />
     <script defer src="./visualmemory.js"></script>
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <section class="game-over">
+      <h1 class="title">Game Over!</h1>
+      <a href="../index.html" class="button">Menu</a>
+      <a class="button" onclick="restartGame()">play again</a>
+    </section>
 
-      <section class="game-over">
-
-        <h1 class="title">Game Over!</h1>
-     <a href="../index.html" class="button">Menu</a>
-        <a class="button" onclick="restartGame()">play again</a>
-
-      </section>
-    
     <div class="stats">
-        <div id="currentLevel"></div>
-        <div id="levelLive">level Live: 3 out of 3</div>
-        <div id="totalLives">Total Live: 3 out of 3</div>
-        <div id="highScore">High Score: 1</div>
-        
-    </div>
-    
-    <div id="container">
-
-
+      <div id="currentLevel"></div>
+      <div id="levelLive">level Live: 3 out of 3</div>
+      <div id="totalLives">Total Live: 3 out of 3</div>
+      <div id="highScore">High Score: 1</div>
     </div>
 
-
-</body>
+    <div id="container"></div>
+  </body>
 </html>
